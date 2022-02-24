@@ -26,38 +26,38 @@ const App: FC = () => {
 
   const completeTask = (taskNameToDelete: string): void => {
     setTodoList(
-        todoList.filter((task) => {
-          return task.taskName != taskNameToDelete;
-        })
+      todoList.filter((task) => {
+        return task.taskName != taskNameToDelete;
+      })
     );
   };
   return (
-      <div className="App">
-        <div className="header">
-          <div className="inputContainer">
-            <input
-                type="text"
-                placeholder="Task..."
-                name="task"
-                value={task}
-                onChange={taskChange}
-            />
-            <input
-                type="number"
-                placeholder="Deadline (in Days)..."
-                name="deadline"
-                value={deadline}
-                onChange={deadlineChange}
-            />
-          </div>
-          <button onClick={addTask}>Add Task</button>
+    <div className="App">
+      <div className="header">
+        <div className="inputContainer">
+          <input
+            type="text"
+            placeholder="Task..."
+            name="task"
+            value={task}
+            onChange={taskChange}
+          />
+          <input
+            type="number"
+            placeholder="Deadline (in Days)..."
+            name="deadline"
+            value={deadline}
+            onChange={deadlineChange}
+          />
         </div>
-        <div className="todoList">
-          {todoList.map((task: ITask, key: number) => {
-            return <TodoTask key={key} task={task} completeTask={completeTask} />;
-          })}
-        </div>
+        <button onClick={addTask}>Add Task</button>
       </div>
+      <div className="todoList">
+        {todoList.map((task: ITask, key: number) => {
+          return <TodoTask key={key} task={task} completeTask={completeTask} />;
+        })}
+      </div>
+    </div>
   );
 };
 
